@@ -1,5 +1,7 @@
 import { Post } from './PostComponent';
 import React, { useState, useEffect } from 'react';
+import { CommentList } from './CommentListComponent';
+import { CommentBox } from './CommentBoxComponent';
 
 export const Main = (props) => {
     
@@ -9,9 +11,19 @@ export const Main = (props) => {
         const [gifSearchText, setGifSearchText] = useState("");
         const [gifsLoading, setGifsLoading] = useState(true);
         const [gifResponse, setGifResponse] = useState({});
+        const [commentList, setCommentList] = useState([]);
+        const [commentBoxText, setCommentBoxText] = useState("");
 
     const onChangeGifSelectText = (e) => {
         setGifSearchText(e.target.value);
+    }
+
+    const addComment = (comment) => {
+        setCommentList([
+            ...commentList,
+            comment
+        ])
+        setCommentBoxText("")
     }
 
     useEffect(() => {
@@ -48,6 +60,15 @@ export const Main = (props) => {
                 onChangeGifSelectText={(e) => onChangeGifSelectText(e)}
                 gifSearchText={gifSearchText}
                 gifResponse={gifResponse}
+            />
+            <CommentList
+                commentList={commentList}
+            />
+            <CommentBox
+                postPosted={postPosted}
+                commentBoxText={commentBoxText}
+                setCommentBoxText={(text) => {setCommentBoxText(text)}}
+                addComment={(comment) => {addComment(comment)}}
             />
         </div>
     );
