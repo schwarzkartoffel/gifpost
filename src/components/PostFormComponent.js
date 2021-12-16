@@ -10,6 +10,14 @@ export const PostForm = (props) => {
                     className="form-control mb-3 mt-3"
                     />
                 </div>
+                <div className="col-12">
+                    {props.postGif?
+                        <img src={props.postGif.images.original.url}
+                        alt={props.postGif.title}
+                        />
+                    :
+                        <div></div>}
+                </div>
             </div>
             <div className="row">
                 <div className="col align-self-start">
@@ -32,7 +40,8 @@ export const PostForm = (props) => {
                             <GifSelect gifSearchText={props.gifSearchText}
                             onChangeGifSelectText={props.onChangeGifSelectText}
                             gifResponse={props.gifResponse}
-                                />
+                            setPostGif={props.setPostGif}
+                            />
                         </div>
                     </div>
                 </div>

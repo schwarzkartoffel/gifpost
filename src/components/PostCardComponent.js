@@ -6,9 +6,13 @@ export const PostCard = (props) => {
                     {props.postText}
                 </p>
             </div>
-            <div className="card-img-bottom">
-                <img src={props.postGif} alt="GIF goes here"/>
-            </div>
+            {props.postGif?
+                <div className="card-img-bottom">
+                    <img src={props.postGif.images.original.url} alt={props.postGif.title}/>
+                </div>
+            :
+                <div></div>
+            }
         </div>
     )
 }

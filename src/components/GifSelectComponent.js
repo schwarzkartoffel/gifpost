@@ -4,11 +4,15 @@ export const GifSelect = (props) => {
             (props.gifResponse.data.map((elem) => {
                 return (
                     <div className="col-12" key={elem.id}>
-                        <video alt={elem.title} autoPlay loop>
+                        {/* <video alt={elem.title} autoPlay loop>
                             <source src={elem.images.fixed_width_small.mp4}
                             type="video/mp4"
                             />
-                        </video>
+                        </video> */
+                        <img src={elem.images.fixed_width_downsampled.url}
+                        alt={elem.title}
+                        onClick={() => {props.setPostGif(elem)}}
+                        />}
                     </div>
                 )
             })) : [];

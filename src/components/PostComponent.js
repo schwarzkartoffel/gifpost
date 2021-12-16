@@ -24,6 +24,7 @@ export const Post = (props) => {
                 setPostPosted={props.setPostPosted}
                 postText={props.postText}
                 postGif={props.postGif}
+                setPostGif={props.setPostGif}
                 setPostText={props.setPostText}
                 gifSearchText={props.gifSearchText}
                 onChangeGifSelectText={props.onChangeGifSelectText}

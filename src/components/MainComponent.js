@@ -5,7 +5,7 @@ export const Main = (props) => {
     
         const [postPosted, setPostPosted] = useState(false);
         const [postText, setPostText] =  useState("");
-        const [postGif, setPostGif] = useState({});
+        const [postGif, setPostGif] = useState(undefined);
         const [gifSearchText, setGifSearchText] = useState("");
         const [gifsLoading, setGifsLoading] = useState(true);
         const [gifResponse, setGifResponse] = useState({});
@@ -43,6 +43,7 @@ export const Main = (props) => {
                 setPostPosted={(b) => {setPostPosted(b)}}
                 postText={postText} 
                 postGif={postGif}
+                setPostGif={(gifObj) => {setPostGif(gifObj)}}
                 setPostText={(text) => setPostText(text)}
                 onChangeGifSelectText={(e) => onChangeGifSelectText(e)}
                 gifSearchText={gifSearchText}
