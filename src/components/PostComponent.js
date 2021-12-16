@@ -21,9 +21,10 @@ export const Post = (props) => {
         <div>
             {!props.posted ?
                 <PostForm posted={props.posted}
+                setPostPosted={props.setPostPosted}
                 postText={props.postText}
                 postGif={props.postGif}
-                changePost={props.changePost}
+                setPostText={props.setPostText}
                 gifSearchText={props.gifSearchText}
                 onChangeGifSelectText={props.onChangeGifSelectText}
                 gifResponse={props.gifResponse}

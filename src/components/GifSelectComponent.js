@@ -4,7 +4,11 @@ export const GifSelect = (props) => {
             (props.gifResponse.data.map((elem) => {
                 return (
                     <div className="col-12" key={elem.id}>
-                        <video src={elem.images.downsized_small.mp4} alt={elem.title} />
+                        <video alt={elem.title} autoPlay loop>
+                            <source src={elem.images.fixed_width_small.mp4}
+                            type="video/mp4"
+                            />
+                        </video>
                     </div>
                 )
             })) : [];
