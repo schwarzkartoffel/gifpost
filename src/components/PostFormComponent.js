@@ -41,6 +41,7 @@ export const PostForm = (props) => {
                             onChangeGifSelectText={props.onChangeGifSelectText}
                             gifResponse={props.gifResponse}
                             setPostGif={props.setPostGif}
+                            posted={props.posted}
                             />
                         </div>
                     </div>

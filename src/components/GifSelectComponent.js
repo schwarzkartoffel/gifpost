@@ -1,6 +1,6 @@
 export const GifSelect = (props) => {
     const listOfGifs =
-        props.gifResponse.data ?
+        props.gifResponse? props.gifResponse.data ?
             (props.gifResponse.data.map((elem) => {
                 return (
                     <div className="col-12" key={elem.id}>
@@ -11,11 +11,18 @@ export const GifSelect = (props) => {
                         </video> */
                         <img src={elem.images.fixed_width_downsampled.url}
                         alt={elem.title}
-                        onClick={() => {props.setPostGif(elem)}}
+                        onClick={() => {
+                            if(!props.posted) {
+                                props.setPostGif(elem)
+                            }
+                            else {
+                                props.setCommentBoxGifUrl(elem.images.fixed_width_downsampled.url)
+                            }
+                        }}
                         />}
                     </div>
                 )
-            })) : [];
+            })) : [] : [];
     return (
         <>
             <div className="row">

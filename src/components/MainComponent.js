@@ -13,6 +13,7 @@ export const Main = (props) => {
         const [gifResponse, setGifResponse] = useState({});
         const [commentList, setCommentList] = useState([]);
         const [commentBoxText, setCommentBoxText] = useState("");
+        const [commentBoxGifUrl, setCommentBoxGifUrl] = useState("");
 
     const onChangeGifSelectText = (e) => {
         setGifSearchText(e.target.value);
@@ -24,6 +25,7 @@ export const Main = (props) => {
             comment
         ])
         setCommentBoxText("")
+        setCommentBoxGifUrl("")
     }
 
     useEffect(() => {
@@ -42,7 +44,7 @@ export const Main = (props) => {
                 .then(response => response.json())
                 .then(resp => {
                     setGifResponse(resp);
-                    console.log(gifSearchText);
+                    console.log(resp);
                 });
         }
 
@@ -69,6 +71,10 @@ export const Main = (props) => {
                 commentBoxText={commentBoxText}
                 setCommentBoxText={(text) => {setCommentBoxText(text)}}
                 addComment={(comment) => {addComment(comment)}}
+                commentBoxGifUrl={commentBoxGifUrl}
+                setCommentBoxGifUrl={(url) => {setCommentBoxGifUrl(url)}}
+                onChangeGifSelectText={(e) => onChangeGifSelectText(e)}
+                gifResponse={gifResponse}
             />
         </div>
     );

@@ -15,6 +15,12 @@ export const CommentList = (props) => {
                         </div>
                     </div>
                 </div>
+                <div className="col-12 card-img-bottom">
+                    {comment.commentGifUrl?
+                        <img src={comment.commentGifUrl} alt={comment.text} />
+                        :
+                        <div></div>}
+                </div>
             </div>
         );
     })
