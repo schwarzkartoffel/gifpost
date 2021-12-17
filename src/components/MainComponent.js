@@ -9,7 +9,6 @@ export const Main = (props) => {
         const [postText, setPostText] =  useState("");
         const [postGif, setPostGif] = useState(undefined);
         const [gifSearchText, setGifSearchText] = useState("");
-        const [gifsLoading, setGifsLoading] = useState(true);
         const [gifResponse, setGifResponse] = useState({});
         const [commentList, setCommentList] = useState([]);
         const [commentBoxText, setCommentBoxText] = useState("");
@@ -44,7 +43,6 @@ export const Main = (props) => {
                 .then(response => response.json())
                 .then(resp => {
                     setGifResponse(resp);
-                    console.log(resp);
                 });
         }
 
